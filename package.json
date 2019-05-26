@@ -11,10 +11,28 @@
 	],
 	"activationEvents": [
 		"onCommand:extension.helloWorld",
-		"onCommand:extension.openUbuntu"
+		"onCommand:extension.openUbuntu",
+		"onView:terminal-manager"
 	],
 	"main": "./extension.js",
 	"contributes": {
+		"viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "terminal-manager",
+                    "title": "Terminal Manager",
+                    "icon": "resources/terminal.png"
+                }
+            ]
+		},
+		"views": {
+            "terminal-manager": [
+                {
+                    "id": "terminal-manager",
+                    "name": "Terminals"
+                }
+            ]
+        },
 		"commands": [
 			{
 				"command": "extension.helloWorld",
@@ -23,6 +41,10 @@
 			{
 				"command": "extension.openUbuntu",
 				"title": "Open Ubuntu Terminal"
+			},
+			{
+				"command":"extension.gitbash",
+				"title": "Git Bash"
 			}
 		]
 	},
