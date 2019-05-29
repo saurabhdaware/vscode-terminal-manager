@@ -10,8 +10,6 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld",
-		"onCommand:extension.openUbuntu",
 		"onView:terminal-manager"
 	],
 	"main": "./extension.js",
@@ -35,24 +33,12 @@
         },
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
-			},
-			{
 				"command": "extension.editTerminals",
 				"title": "Edit Terminals",
 				"icon":{
 					"dark": "resources/edit.svg",
 					"light": "resources/edit.svg"
 				}
-			},
-			{
-				"command": "extension.openUbuntu",
-				"title": "Open Ubuntu Terminal"
-			},
-			{
-				"command":"extension.gitbash",
-				"title": "Git Bash"
 			}
 		],
 		"menus":{
