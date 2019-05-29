@@ -39,6 +39,14 @@
 				"title": "Hello World"
 			},
 			{
+				"command": "extension.editTerminals",
+				"title": "Edit Terminals",
+				"icon":{
+					"dark": "resources/edit.svg",
+					"light": "resources/edit.svg"
+				}
+			},
+			{
 				"command": "extension.openUbuntu",
 				"title": "Open Ubuntu Terminal"
 			},
@@ -46,7 +54,16 @@
 				"command":"extension.gitbash",
 				"title": "Git Bash"
 			}
-		]
+		],
+		"menus":{
+			"view/title": [
+				{
+					"command":"extension.editTerminals",
+					"when":"view == terminal-manager",
+					"group":"navigation"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"postinstall": "node ./node_modules/vscode/bin/install",
