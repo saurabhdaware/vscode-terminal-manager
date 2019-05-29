@@ -53,4 +53,6 @@ Initial Release of Terminal Manager and Minor Updates.
 
 
 ----
-Dont forget to star my github repository : https://github.com/saurabhdaware/vscode-terminal-manager
+***Dont forget to star my github repository https://github.com/saurabhdaware/vscode-terminal-manager***
+
+***Enjoy !***
