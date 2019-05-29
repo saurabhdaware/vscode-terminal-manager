@@ -4,6 +4,9 @@
 	"description": "Choose which terminal to use in single click and switch between multiple terminals. ",
 	"version": "1.0.1",
 	"publisher": "saurabh",
+	"author": {
+		"name": "saurabhdaware"
+	},
 	"icon": "resources/icon.png",
 	"engines": {
 		"vscode": "^1.34.0"
@@ -11,6 +14,16 @@
 	"categories": [
 		"Other"
 	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/saurabhdaware/vscode-terminal-manager.git"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/saurabhdaware/vscode-terminal-manager/blob/master/README.md",
+	"bugs": {
+		"url": "https://github.com/saurabhdaware/vscode-terminal-manager/issues",
+		"email": "saurabhdaware99@gmail.com"
+	},
 	"keywords": [
 		"Terminal Manager",
 		"Multiple Terminal",
@@ -70,9 +83,5 @@
 		"eslint": "^5.13.0",
 		"@types/node": "^10.12.21",
 		"@types/mocha": "^2.2.42"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/saurabhdaware/vscode-terminal-manager.git"
 	}
 }
