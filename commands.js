@@ -47,14 +47,18 @@ class TerminalManager{
         }catch(e){
             fs.promises.mkdir(this.context.globalStoragePath,{recursive:true})
                 .then(() => {
-                    return fs.promises.writeFile(this.context.globalStoragePath+'/terminals.json',`[{
-                        "label":"Ubuntu",
-                        "shellPath":"C:\\Windows\\System32\\bash.exe"
-                    },
-                    {
-                        "label":"Windows",
-                        "shellPath":"C:\\Windows\\System32\\cmd.exe"
-                    }]`)
+                    return fs.promises.writeFile(this.context.globalStoragePath+'/terminals.json',
+`[
+    {
+        "label":"Ubuntu",
+        "shellPath":"C://Windows//System32//bash.exe"
+    },
+    {
+        "label":"Windows",
+        "shellPath":"C://Windows//System32//cmd.exe"
+    }
+]`
+                    )
                 })
                 .catch((e) => {
                     console.log(e);
