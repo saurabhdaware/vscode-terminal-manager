@@ -50,8 +50,8 @@ class TerminalManager{
                     return fs.promises.writeFile(this.context.globalStoragePath+'/terminals.json',
 `[
     {
-        "label":"Ubuntu",
-        "shellPath":"C://Windows//System32//bash.exe"
+        "label":"Windows Powershell",
+        "shellPath":"C://Windows//System32//WindowsPowerShell//v1.0//powershell.exe"
     },
     {
         "label":"Windows",
