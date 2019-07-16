@@ -37,8 +37,9 @@ class TerminalManager{
     getTerminals(){
         let terminals;
         try{
-            terminals = JSON.parse(fs.readFileSync(this.context.globalStoragePath+'/terminals.json'));
-            console.log(terminals);
+            const fileContent = fs.readFileSync(this.context.globalStoragePath+'/terminals.json');
+            console.log(fileContent);
+            terminals = JSON.parse(fileContent);
             terminals = terminals.map(terminal => {
                 terminal.command = 'extension.'+terminal.label.toLowerCase().replace(/ /g,'');
                 terminal.commandTitle = terminal.label;
@@ -91,7 +92,10 @@ class TerminalManager{
     loadCommands(){
         let editTerminals = vscode.commands.registerCommand('extension.editTerminals',() => {
             let terminalsJsonPath = this.context.globalStoragePath+'/terminals.json';
-            vscode.window.showTextDocument(vscode.Uri.parse("file:///"+terminalsJsonPath))
+            console.log("TERMINALS PATH");
+            console.log(terminalsJsonPath);
+            // vscode.window.showTextDocument('newfile.js');
+            vscode.window.showTextDocument(vscode.Uri.parse(terminalsJsonPath))
                 .catch(console.log);
         })
         this.context.subscriptions.push(editTerminals);
