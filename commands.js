@@ -91,11 +91,8 @@ class TerminalManager{
     
     loadCommands(){
         let editTerminals = vscode.commands.registerCommand('extension.editTerminals',() => {
-            let terminalsJsonPath = this.context.globalStoragePath+'/terminals.json';
-            console.log("TERMINALS PATH");
-            console.log(terminalsJsonPath);
-            // vscode.window.showTextDocument('newfile.js');
-            vscode.window.showTextDocument(vscode.Uri.parse(terminalsJsonPath))
+            let terminalsJsonPath = this.context.globalStoragePath+'\\terminals.json';
+            vscode.window.showTextDocument(vscode.Uri.file(terminalsJsonPath))
                 .catch(console.log);
         })
         this.context.subscriptions.push(editTerminals);
