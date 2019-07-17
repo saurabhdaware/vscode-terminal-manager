@@ -1,5 +1,6 @@
 const fs = require('fs');
 const vscode = require('vscode');
+const path = require('path');
 
 class TerminalTree{
 	constructor(terminals){
@@ -91,7 +92,7 @@ class TerminalManager{
     
     loadCommands(){
         let editTerminals = vscode.commands.registerCommand('extension.editTerminals',() => {
-            let terminalsJsonPath = this.context.globalStoragePath+'\\terminals.json';
+            let terminalsJsonPath = path.join(this.context.globalStoragePath,'terminals.json');
             vscode.window.showTextDocument(vscode.Uri.file(terminalsJsonPath))
                 .catch(console.log);
         })
