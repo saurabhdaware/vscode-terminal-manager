@@ -1,5 +1,6 @@
 const fs = require('fs');
 const vscode = require('vscode');
+const path = require('path');
 
 class TerminalTree{
 	constructor(terminals){
@@ -37,8 +38,9 @@ class TerminalManager{
     getTerminals(){
         let terminals;
         try{
-            terminals = JSON.parse(fs.readFileSync(this.context.globalStoragePath+'/terminals.json'));
-            console.log(terminals);
+            const fileContent = fs.readFileSync(this.context.globalStoragePath+'/terminals.json');
+            console.log(fileContent);
+            terminals = JSON.parse(fileContent);
             terminals = terminals.map(terminal => {
                 terminal.command = 'extension.'+terminal.label.toLowerCase().replace(/ /g,'');
                 terminal.commandTitle = terminal.label;
@@ -90,8 +92,8 @@ class TerminalManager{
     
     loadCommands(){
         let editTerminals = vscode.commands.registerCommand('extension.editTerminals',() => {
-            let terminalsJsonPath = this.context.globalStoragePath+'/terminals.json';
-            vscode.window.showTextDocument(vscode.Uri.parse("file:///"+terminalsJsonPath))
+            let terminalsJsonPath = path.join(this.context.globalStoragePath,'terminals.json');
+            vscode.window.showTextDocument(vscode.Uri.file(terminalsJsonPath))
                 .catch(console.log);
         })
         this.context.subscriptions.push(editTerminals);
