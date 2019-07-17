@@ -47,10 +47,13 @@ Here's what sample terminals.json looks like.
 
 ## Release Notes
 
-### 1.0.x
+### 1.0.0 - 1.0.4
 
 Initial Release of Terminal Manager and Minor Updates. 
 
+### 1.0.5
+
+Fixed Path error that was thrown in Ubuntu when edit button was clicked
 
 ----
 

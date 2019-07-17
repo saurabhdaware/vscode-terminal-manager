@@ -2,7 +2,7 @@
 	"name": "terminal-manager",
 	"displayName": "Terminal Manager",
 	"description": "Choose which terminal to use in single click and switch between multiple terminals. ",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"publisher": "saurabh",
 	"author": {
 		"name": "saurabhdaware"
