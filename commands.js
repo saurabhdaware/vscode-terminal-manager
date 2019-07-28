@@ -81,7 +81,7 @@ class TerminalManager{
         // vscode.window.showInformationMessage('Congratulations, your extension "terminal-manager" is now active!');
         for(let terminal of terminals){
             let cmd = vscode.commands.registerCommand(terminal.command, function () {
-                let terminalInstance = vscode.window.createTerminal(terminal.commandTitle,terminal.shellPath);
+                let terminalInstance = vscode.window.createTerminal(terminal.commandTitle,terminal.shellPath,terminal.shellArgs);
                 terminalInstance.show();
             });
             this.context.subscriptions.push(cmd);
