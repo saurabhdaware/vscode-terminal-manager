@@ -7,3 +7,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [Unreleased]
 
 - Initial release
+
+## [TBD - at least 1.0.6?]
+
+### Added
+
+- shell args can be added to shell command
