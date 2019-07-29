@@ -4,7 +4,7 @@ Terminal Manager is a visual studio code extension to switch between various ter
 
 [![Current version of Terminal Manager](https://vsmarketplacebadge.apphb.com/version-short/saurabh.terminal-manager.svg)](https://marketplace.visualstudio.com/items?itemName=saurabh.terminal-manager) [![Current version of Terminal Manager](https://vsmarketplacebadge.apphb.com/downloads/saurabh.terminal-manager.svg)](https://marketplace.visualstudio.com/items?itemName=saurabh.terminal-manager) [![Current version of Terminal Manager](https://vsmarketplacebadge.apphb.com/rating-short/saurabh.terminal-manager.svg)](https://marketplace.visualstudio.com/items?itemName=saurabh.terminal-manager)
 
-<a href="https://marketplace.visualstudio.com/items?itemName=saurabh.terminal-manager" style="color:#ddd;font-size:10pt;background:#333;padding:10px 14px;border:1px solid #000;">Visit Marketplace</a>
+[![Install extension button](https://res.cloudinary.com/saurabhdaware/image/upload/v1564401766/saurabhdaware.in/otherAssets/iebutton.png)](https://marketplace.visualstudio.com/items?itemName=saurabh.terminal-manager)
 
 ## Features
 
@@ -19,25 +19,41 @@ Using this extension you can provide an array of terminals and then you can swit
 
 Click the edit icon ![](resources/edit.png) in Terminal Manager activity bar to edit the terminal settings.
 
-Here's what sample terminals.json looks like.
+Here's what sample terminals.json looks like. (Note : Ubuntu configs will only work if you have wsl installed in your windows)
 
+### In Windows :
 ```json
 [
     {
         "label":"Windows",
-        "shellPath":"C://Windows//System32//cmd.exe"
+        "shellPath":"C://Windows//System32//cmd.exe",
+        "shellArgs":[
+            "/K",
+            "echo Heya!"
+        ]
     },
     {
         "label":"Ubuntu",
         "shellPath":"C://Windows//System32//bash.exe"
+    }
+]
+```
+
+### In Linux and OSX:
+```json
+[
+    {
+        "label":"Login bash",
+        "shellPath":"/bin/bash",
+        "shellArgs":["-l"]
     },
     {
-        "label":"Cygwin",
-        "shellPath":"C://Tools//cygwin64//bin//bash.exe",
-        "shellArgs":[
-            "/bin/xhere",
-            "/bin/bash"
-        ]
+        "label": "Restricted Bash",
+        "shellPath": "/bin/rbash"
+    },
+    {
+        "label":"sh",
+        "shellPath":"/bin/sh"
     }
 ]
 ```
@@ -60,15 +76,17 @@ Here's what sample terminals.json looks like.
 
 ### 1.0.0 - 1.0.4
 
-Initial Release of Terminal Manager and Minor Updates.
+- Initial Release of Terminal Manager and Minor Updates.
 
 ### 1.0.5
 
-Fixed Path error that was thrown in Ubuntu when edit button was clicked
+- Fixed Path error that was thrown in Ubuntu when edit button was clicked
 
-### TBD - at least 1.0.6
+### 1.0.6
 
-shell args can be added to shell command
+- shellArgs can be added to terminal (Thanks to [#PR5](https://github.com/saurabhdaware/vscode-terminal-manager/pull/5) by [4a-42](https://github.com/4a-42))
+- added default terminals.json configs for linux and osx
+
 
 ----
 

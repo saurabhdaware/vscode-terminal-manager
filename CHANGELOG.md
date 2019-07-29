@@ -1,15 +1,17 @@
 # Change Log
 
-All notable changes to the "terminal-manager" extension will be documented in this file.
+### 1.0.0 - 1.0.4
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+- Initial Release of Terminal Manager and Minor Updates.
 
-## [Unreleased]
+### 1.0.5
 
-- Initial release
+- Fixed Path error that was thrown in Ubuntu when edit button was clicked
 
-## [TBD - at least 1.0.6?]
+### 1.0.6
 
-### Added
+- shellArgs can be added to terminal (Thanks to [#PR5](https://github.com/saurabhdaware/vscode-terminal-manager/pull/5) by [4a-42](https://github.com/4a-42))
+- added default terminals.json configs for linux and osx
 
-- shell args can be added to shell command
+
+----

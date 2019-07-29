@@ -1,6 +1,7 @@
 const fs = require('fs');
 const vscode = require('vscode');
 const path = require('path');
+const process = require('process');
 
 class TerminalTree{
 	constructor(terminals){
@@ -33,10 +34,46 @@ class TerminalTree{
 class TerminalManager{
     constructor(context){
         this.context = context;
+        this.terminalsConfig = '';
+        // Adjust configurations as per the OS
+        if(process.platform == 'linux'){
+            this.terminalsConfig = `[
+    {
+        "label":"Login bash",
+        "shellPath":"/bin/bash",
+        "shellArgs":["-l"]
+    },
+    {
+        "label":"sh",
+        "shellPath":"/bin/sh"
+    }
+]`
+        }else if(process.platform == 'win32'){
+            this.terminalsConfig = `[
+    {
+        "label":"Windows Powershell",
+        "shellPath":"C://Windows//System32//WindowsPowerShell//v1.0//powershell.exe"
+    },
+    {
+        "label":"CMD",
+        "shellPath":"C://Windows//System32//cmd.exe",
+        "shellArgs":["/K", "echo Heya!"]
+    }
+]`
+        }else{
+            this.terminalsConfig = `[
+    {
+        "label":"Bash",
+        "shellPath":"/bin/bash"
+    }
+]`
+        }
     }
 
     getTerminals(){
         let terminals;
+        console.log("Platform");
+        console.log(process.platform);
         try{
             const fileContent = fs.readFileSync(this.context.globalStoragePath+'/terminals.json');
             console.log(fileContent);
@@ -47,20 +84,10 @@ class TerminalManager{
                 return terminal;
             })
         }catch(e){
+            console.log(e);
             fs.promises.mkdir(this.context.globalStoragePath,{recursive:true})
                 .then(() => {
-                    return fs.promises.writeFile(this.context.globalStoragePath+'/terminals.json',
-`[
-    {
-        "label":"Windows Powershell",
-        "shellPath":"C://Windows//System32//WindowsPowerShell//v1.0//powershell.exe"
-    },
-    {
-        "label":"Windows",
-        "shellPath":"C://Windows//System32//cmd.exe"
-    }
-]`
-                    )
+                    return fs.promises.writeFile(this.context.globalStoragePath+'/terminals.json',this.terminalsConfig)
                 })
                 .catch((e) => {
                     console.log(e);
